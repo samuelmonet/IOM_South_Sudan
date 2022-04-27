@@ -10,7 +10,6 @@ import pickle
 import re
 from collections import Counter
 from PIL import Image
-from joypy import joyplot
 from streamlit_option_menu import option_menu
 from dashboard_fonctions import *
 
