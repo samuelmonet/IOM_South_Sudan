@@ -1,0 +1,184 @@
+,parent,type,Treatment,Other,question
+Idquest,parent,type,Treatment,Other,ID
+latitude,,continue,,,_GPS_latitude
+longitude,,continue,,,_GPS_longitude
+gender resp,,,,,A2) Gender of the respondent:
+age,,continue,,,A3) Enter age of respondent
+yearsset,,continue,,,A4) How long have you lived in this settlement(Enter number of YEARS)
+timesttelement,,continue,,,A5) How long have you lived in this settlement(Enter number of MONTHS)
+Head_Household,,,,,A6) Are you the head of the household:
+gender_if_no,,,drop,,A9) Gender of the household head:
+age HHH if no,,,drop,,A9a) Enter age of the household head
+marital,,,to code,,A10) Marital status of the respondent
+hh_women,,continue,,,Women adults(above 18 years)
+hh_girls,,continue,,,Girls (between 5 and 18 years)
+hh_men,,continue,,,Men adults (above 18 years)
+hh_boys,,continue,,,Boys (between 5 and 18 years
+hh_childrenG,,continue,,,Children (girls below 5 years)
+hh_childrenB,,continue,,,Children (boys below 5 years)
+hh_total,,continue,,,Total
+educ,,,to code,,A12) What is highest level of education in the household?
+employment,,,to code,,A13) What is your employment status?
+selfemploment,,,text,,A13a) Please describe the self employment:
+primaryincome,,,dummy,,A14) What is your household's PRIMARY source of income?
+sourcefromwho,primaryincome,,text,,A14b) From who?
+incomerange,,continue,,,A15) Enter range of the overall average monthly income in SSP
+residency,,,to code,,A16) What is your household's displacement status in your current location?
+flee_reason,residency==IDP,,dummy,,"A17) If IDP, why did you flee from your home?"
+period,residency==IDP,,to code,,A19) How long have you been an IDP?
+disp_times,residency==IDP,,to code,,"A20) If IDP, please specify how many times you have been displaced:"
+urban_rural,,,to code,,A22) Are you from an urban or rural area?
+disabled,,,,,A23) Do you have a disability?
+disability,disabled,,text,,"A24) If yes, what disability do you have? (DO NOT READ OUT ANSWERS)"
+disabled_hh,,,,,"A25) Besides you, Is there anyone who is disabled in your house?"
+otherdisability,disabled_hh,,text,,"A26) If yes, please specify what kind of disability:"
+ccm,,,,,1) Have you received any CCCM services from IOM?
+ccm_received,ccm,,text,,2) Please list the CCCM services you have received from IOM
+ccm_training,,,,,3) Have you received training on CCCM and humanitarian responses?
+hum_interventions,,,,,4) Have you participated in humanitarian interventions through community management structures?
+infrastructure,,,,,5) Are there infrastructures that have been rehabilitated or maintained by the project?
+nameofinfrastructure,infrastructure,,text,,"6a) If yes, please state the infrastructures"
+psn_support,,,,,7) Has the governance committee provided support to Persons with Special Needs (PSN)?
+gov_committees,,,,,8) Have you received training from IOM to sensitize on roles and responsibilities of governance committees?
+complaint_mech,,,,,9) Are you familiar with ways to raise complaints or feedback on the project?
+ways_CFM,complaint_mech,,text,,9a) Please list these way(s) to raise complaints or feedback on the project:
+inaddressed,,,,,10) Have you ever lodged a complaint about the project with the complaint desk
+receivedfeedback,inaddressed,,,,"11) If yes, did you receive feedback on the complaint raised?"
+CFW_efficient,,,,,12) Do you think the complaint and feedback mechanism used so far is effective and sufficient?
+explaineff,CFW_efficient,,text,,12a) Please explain:
+spaces,,,,,13) Are there communal spaces/facilities where community engagement takes place?
+spaces2,spaces,,text,,"13a) If no, where does community engagements take place?"
+nfi,,,,,14) Did your household receive Shelter/Non-Food Item (NFI)?
+lastreceived,nfi,,to code,,"15) If yes, when was the last time you received the NFI kits?"
+nfi_needs,nfi,,,,"16) If yes, have the items you received contributed to your response to your main urgent needs?"
+nfi_access,nfi,,,,"17) If yes, were you able to access Shelter/NFI items when needed?"
+nfi_safe,nfi,,,,"18) If yes, are the Shelter/NFI items distributed in a safe manner?"
+nfi_items None,nfi,,catno,,19) What Shelter/NFI Items did you receive
+nfi_items Plastic Sheets,nfi,,cat,,19) What Shelter/NFI Items did you receive/Plastic Sheets
+nfi_items Nylon/Rubber Rope,nfi,,cat,,19) What Shelter/NFI Items did you receive/Nylon/Rubber Rope
+nfi_items Bamboo poles,nfi,,cat,,19) What Shelter/NFI Items did you receive/Bamboo poles
+nfi_items Mosquito Net,nfi,,cat,,19) What Shelter/NFI Items did you receive/Mosquito Net
+nfi_items Blanket,nfi,,cat,,19) What Shelter/NFI Items did you receive/Blanket
+nfi_items Kanga,nfi,,cat,,19) What Shelter/NFI Items did you receive/Kanga
+nfi_items Sleeping Mat,nfi,,cat,,19) What Shelter/NFI Items did you receive/Sleeping Mat
+nfi_items Solar Lamp,nfi,,cat,,19) What Shelter/NFI Items did you receive/Solar Lamp
+nfi_items Other,nfi,,cat,,19) What Shelter/NFI Items did you receive/Other (please specify)
+items_other,nfi_items Other,,text,,Specify the other reason:
+nfi_enough,nfi,,,,20)Do you think that you received enough of the Shelter/NFI items compared to your needs?
+nfi_enough2,nfi_enough=No,,text,,"20a) If no, please explain:"
+emerg_shelter,,,,,21)Has your household received emergency shelter assistance from IOM?
+cash,,,,,22) Has your household received cash-based assistance from IOM?
+cash_type,cash,,dummy,,"23) If yes, what type of cash-based assistance did you receive?"
+cash_pay,cash,continue,,,"24) If yes, how much were you paid per month in SSP?"
+cash_months,cash,,to code,,25) For how many months did you receive the cash-based assistance?
+awareness_sess,,,,,26) Have you attended any awareness sessions on disaster risk reduction in the community?
+cash_benef,cash,,,,27) Was the money received beneficial to you and your household?
+cash_usage No cash received,cash,,catno,,28) How did you use the money that you received from the cash-based assistance?
+cash_usage Buy food,cash,,cat,,28) How did you use the money that you received from the cash-based assistance?/Buy food
+cash_usage Pay debts,cash,,cat,,28) How did you use the money that you received from the cash-based assistance?/Pay debts
+cash_usage Buy clothes,cash,,cat,,28) How did you use the money that you received from the cash-based assistance?/Buy clothes
+cash_usage Buy medicine,cash,,cat,,28) How did you use the money that you received from the cash-based assistance?/Buy medicine
+cash_usage Buy water,cash,,cat,,28) How did you use the money that you received from the cash-based assistance?/Buy water
+cash_usage Buy fuel,cash,,cat,,28) How did you use the money that you received from the cash-based assistance?/Buy fuel
+cash_usage Buy cooking gas,cash,,cat,,28) How did you use the money that you received from the cash-based assistance?/Buy cooking gas
+"cash_usage School fees, uniform and school material",cash,,cat,,28) How did you use the money that you received from the cash-based assistance?/Pay school fees/buy uniform and school material
+cash_usage Open a business,cash,,cat,,28) How did you use the money that you received from the cash-based assistance?/Open a business
+cash_usage Buy livestock,cash,,cat,,28) How did you use the money that you received from the cash-based assistance?/Buy livestock
+"cash_usage Buy agricultural inputs (seeds, tools, fodder, fertilizer etc.)",cash,,cat,,"28) How did you use the money that you received from the cash-based assistance?/Buy agricultural inputs (seeds, tools, fodder, fertilizer etc.)"
+cash_usage Savings,cash,,cat,,28) How did you use the money that you received from the cash-based assistance?/Savings
+cash_usage Transport,cash,,cat,,28) How did you use the money that you received from the cash-based assistance?/Transport
+"cash_usage Pay rent, shelter",cash,,cat,,28) How did you use the money that you received from the cash-based assistance?/Pay rent/shelter
+cash_usage Gift to neighbour or relative,cash,,,,28) How did you use the money that you received from the cash-based assistance?/Give as a gift/loan to neighbour/relative
+bdnc,,,dummy,,29) Are you aware of Boma Disaster Management Committees established by the project
+accomm,,,dummy,,30) Which of this best describes your present accommodation?
+tenure_doc,,,,,31) Do you have a land tenure document?
+agreement Oral agreement  ,,,cat,,32) What type of agreement do you have for your ownership OR rental of current accommodation?/Oral agreement
+agreement Title deed,,,cat,,32) What type of agreement do you have for your ownership OR rental of current accommodation?/Title deed
+agreement Rental agreement,,,cat,,32) What type of agreement do you have for your ownership OR rental of current accommodation?/Rental agreement
+agreement O?cial letter of ownership,,,cat,,O?cial letter of ownership
+agreement Uno?cial letter of ownership,,,cat,,Uno?cial letter of ownership
+agreement O?cial letter of rental,,,cat,,O?cial letter of rental
+agreement Uno?cial letter of rental,,,cat,,Uno?cial letter of rental
+agreement Local authority permit,,,cat,,32) What type of agreement do you have for your ownership OR rental of current accommodation?/Local authority permit (to occupy abandoned housing or public buildings).
+agreement Don't know,,,cat,,32) What type of agreement do you have for your ownership OR rental of current accommodation?/Don't know
+agreement Other,,,cat,,32) What type of agreement do you have for your ownership OR rental of current accommodation?/Other
+agreement_other,,,text,,32a) Specify the other ownership agreement:
+disputes,,,,,"34) Have there been any arguments or disputes with neighbours, other families, or people living in this area?"
+disputes_resolver,disputes,,dummy,,35) Who did you approach to get the dispute resolved
+dispute_resolved,disputes,,,,36) Has the dispute been resolved
+watersource,,,dummy,,"37) What is your current MAIN source of water for drinking, cooking, and hygiene in your household?"
+watersource_duration_a,,continue,,,38a) Enter exact time in MINUTES
+wells,,continue,,,39) How many operational wells are in your village?
+water_pay,,continue,,,40) How much do you pay for 1 litre of water?(in SSP)
+water_treatment,,,,,41) What type of water treatment do you use?
+borehole_rehab,,,,,42) Has the borehole in your area been rehabilitated?
+water_access,borehole_rehab,,,,"43) If yes, since rehabilitation, has this improved your access to water?"
+rehab_effect,borehole_rehab,,text,,44) Explain the effectiveness of the rehabilitation of the boreholes on access to water for livestock and agriculture?
+water_sensitization,,,,,"45)Have you ever had any sensitization on safe water supply, sanitation and hygiene in the last three months?"
+toilet,,,to code,,46) Where do you mostly defecate (go to the toilet)?
+handwash,,,,,"47) If selected family or communal latrine above, is there a handwashing area next to the toilet?"
+soap,handwash,,,,"48) If yes above, is there soap available at the handwashing area?"
+separate,,,,,49) Are women and men latrines are separated?
+sensitization,,,,,"50) Have you ever had any sensitization on safe water supply, sanitation and hygiene in the last 6 months?"
+hygene_prom,,,,,51) Have you attended a mass hygiene promotion session in the last 6 months?
+handwash_times Before preparing meals,,,cat,,52) What are the CRITICAL TIMES for washing hands in your households?/Before preparing meals
+handwash_times Before serving food,,,cat,,52) What are the CRITICAL TIMES for washing hands in your households?/Before serving food
+handwash_times Before eating,,,cat,,52) What are the CRITICAL TIMES for washing hands in your households?/Before eating
+handwash_times Before feeding a baby,,,cat,,52) What are the CRITICAL TIMES for washing hands in your households?/Before feeding a baby
+handwash_times After cleaning the baby of the feaces,,,cat,,52) What are the CRITICAL TIMES for washing hands in your households?/After cleaning the baby of the feaces
+handwash_times After using the toilet,,,cat,,52) What are the CRITICAL TIMES for washing hands in your households?/After using the toilet
+handwash_times After handling garbage,,,cat,,52) What are the CRITICAL TIMES for washing hands in your households?/After handling garbage
+handwash_times After playing with children,,,cat,,52) What are the CRITICAL TIMES for washing hands in your households?/After playing with children
+handwash_why,,,to code,,53) Why is it important to wash our hands?(most important reason)
+handwash_item,,,to code,,54) What do you wash your hands with MOSTLY?
+latrine_use,,,,,55) Did you or any other member of your household (available) use a latrine/toilet the last time you defecated?
+hygiene_activities,,,,,56)Have you participated in any hygiene promotion activities?
+wash_nfi,,,,,57) Did your household receive a WASH Non-Food Item (NFI) Kit?
+mhm,,,,,58)Did any female member of your HH receive a MHM Kit from IOM?
+soap2,,,,,59) Has your household received soap from IOM?
+mhm_training,,,,,60) Have you received training on MHM Kits
+hygiene_messages,,,,,62) Did you receive any hygiene messages during the implementation of the project?
+hygiene_awareness,,,,,63) Have you attended any Hygiene awareness campaigns?
+clinic,,,,,64) Is there an IOM operated clinic near you?
+clinic_access,,,,,65) Have you or any member of your HH accessed an IOM operated clinic?
+clinic_satisfaction,clinic_access,,to code,,"66) If yes, how would you rate your satisfaction in the health care services received at the service?"
+mh_services Psychological First Aid,,,cat,,67) Have you received any of the following services from IOM?/Psychological First Aid
+mh_services Counselling,,,cat,,67) Have you received any of the following services from IOM?/Counselling
+mh_services Support Groups,,,cat,,67) Have you received any of the following services from IOM?/Support Groups
+mh_services Referral,,,cat,,67) Have you received any of the following services from IOM?/Referral
+well-being,,,to code,,68) Has there been an increase in your psychosocial well-being?
+cb_training Psychological first aid,,,cat,,69) Have you received the following capacity building training from IOM?/Psychological first aid
+cb_training Basic counselling,,,cat,,69) Have you received the following capacity building training from IOM?/Basic counselling
+"cb_training Group facilitation, mindfulness, and animation of socio-relational",,,cat,,"69) Have you received the following capacity building training from IOM?/Group facilitation, mindfulness, and animation of socio-relational"
+cb_training Cultural and creative and arts-based activities,,,cat,,69) Have you received the following capacity building training from IOM?/Cultural and creative and arts-based activities
+cb_training Sports and play,,,cat,,69) Have you received the following capacity building training from IOM?/Sports and play
+cb_training Non-formal education,,,cat,,69) Have you received the following capacity building training from IOM?/Non-formal education
+ctds,,,,,70) Have you received training in conflict transformation and dialogue skills?
+basicknowledge_improvement,ctds,,to code,,"71) If yes, has there been improvement in your basic knowledge on conflict transformation?"
+targeted_ass,,,,,72) Have you received individual targeted assistance/support from IOM?
+gbv_campaigns,,,,,73) Are you aware of any GBV awareness campaigns carried out by the project?
+campaigns No message received,,,catno,,"74) If yes, how did you receive these messages?"
+campaigns Drama,,,cat,,"74) If yes, how did you receive these messages?/Drama"
+campaigns Door-to-door visits,,,cat,,"74) If yes, how did you receive these messages?/Door-to-door visits"
+campaigns Community discussions,,,cat,,"74) If yes, how did you receive these messages?/Community discussions"
+campaigns Radio talk shows,,,cat,,"74) If yes, how did you receive these messages?/Radio talk shows"
+campaigns Other,,,cat,,"74) If yes, how did you receive these messages?/Other (Specify)"
+knowledge_increase,gbv_campaigns,,to code,,"75) If yes, since participating in the GBV initiatives by IOM, my overall knowledge has?"
+wgfs,,,,,76) Have you accessed a woman's and girls' friendly space?
+wgfs_benefit,wgfs,,to code,,"77) If yes, are the women and girls' friendly spaces beneficial?"
+perception1,,,to code,,"Because of the project, my access to safe, appropriate emergency shelter and lifesaving NFIs has"
+perception2,,,to code,,"Because of the project, my ability to respond to shocks and build on existing skills has"
+perception3,,,to code,,"Since the project, my overall knowledge on GBV has"
+perception4,,,to code,,"Since the project, my access to health services has"
+perception5,,,to code,,"Since the project, my knowledge on Mental Health and Psychosocial well-being has"
+recommandation,,,text,,What recommendations would you propose to improve the project activities?
+remarks,,,text,,Enumerator remarks and additional observation
+county,,,dummy,,County_revised
+payam,,,dummy,,Payam_Y
+boma,,,dummy,,Boma_z
+village,,,dummy,,Village_AA
+lastrehabwhen,infrastructure,,text,,6b) When was the last rehabilitation of the infrastructures done?
+lastrehabwho,infrastructure,,text,,6b) By who was the last rehabilitation of the infrastructures done?
+incomepermember,,continue,,,Income per household member
+gender HHH,,,,,Gender of the head of household
+age HHH,,continue,,,Age of the head of household
