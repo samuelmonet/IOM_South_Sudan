@@ -1,0 +1,108 @@
+Idquest,parent,type,Treatment,Other,question
+gender resp,,,,,A2) Gender of the respondent:
+age,,continue,,,A3) Enter age of respondent
+yearsset,,continue,,,A4) How long have you lived in this settlement(Enter number of YEARS)
+Head_Household,,,,,A6) Are you the head of the household:
+marital,,,to code,,A10) Marital status of the respondent
+hh_women,,continue,,,Women adults(above 18 years)
+hh_girls,,continue,,,Girls (between 5 and 18 years)
+hh_men,,continue,,,Men adults (above 18 years)
+hh_boys,,continue,,,Boys (between 5 and 18 years)
+hh_childrenG,,continue,,,Children (girls below 5 years)
+hh_childrenB,,continue,,,Children (boys below 5 years)
+hh_total,,continue,,,Total number of persons in the household
+educ,,,to code,,A12) What is highest level of education in the household?
+employment,,,to code,,A13) What is your employment status?
+primaryincome,,,dummy,,A14) What is your household's PRIMARY source of income?
+incomerange,,continue,,,A15) Enter range of the overall average monthly income in SSP
+residency,,,to code,,A16) What is your household's displacement status in your current location?
+flee_reason,residency,,dummy,,"A17) If IDP, why did you flee from your home?"
+period,residency,,to code,,A19) How long have you been an IDP?
+disp_times,residency,,to code,,"A20) If IDP, please specify how many times you have been displaced:"
+urban_rural,,,to code,,A22) Are you from an urban or rural area?
+disabled,,,,,A23) Do you have a disability?
+disabled_hh,,,,,"A25) Besides you, Is there anyone who is disabled in your house?"
+ccm,,,,,1) Have you received any CCCM services from IOM?
+ccm_training,,,,,3) Have you received training on CCCM and humanitarian responses?
+hum_interventions,,,,,4) Have you participated in humanitarian interventions through community management structures?
+infrastructure,,,,,5) Are there infrastructures that have been rehabilitated or maintained by the project?
+psn_support,,,,,7) Has the governance committee provided support to Persons with Special Needs (PSN)?
+gov_committees,,,,,8) Have you received training from IOM to sensitize on roles and responsibilities of governance committees?
+complaint_mech,,,,,9) Are you familiar with ways to raise complaints or feedback on the project?
+inaddressed,,,,,10) Have you ever lodged a complaint about the project with the complaint desk
+receivedfeedback,inaddressed,,,,"11) If yes, did you receive feedback on the complaint raised?"
+CFW_efficient,,,,,12) Do you think the complaint and feedback mechanism used so far is effective and sufficient?
+spaces,,,,,13) Are there communal spaces/facilities where community engagement takes place?
+nfi,,,,,14) Did your household receive Shelter/Non-Food Item (NFI)?
+lastreceived,nfi,,to code,,"15) If yes, when was the last time you received the NFI kits?"
+nfi_needs,nfi,,,,"16) If yes, have the items you received contributed to your response to your main urgent needs?"
+nfi_access,nfi,,,,"17) If yes, were you able to access Shelter/NFI items when needed?"
+nfi_safe,nfi,,,,"18) If yes, are the Shelter/NFI items distributed in a safe manner?"
+nfi_items,nfi,,cat,,19) What Shelter/NFI Items did you receive
+nfi_enough,nfi,,,,20)Do you think that you received enough of the Shelter/NFI items compared to your needs?
+emerg_shelter,,,,,21)Has your household received emergency shelter assistance from IOM?
+cash,,,,,22) Has your household received cash-based assistance from IOM?
+cash_type,cash,,dummy,,"23) If yes, what type of cash-based assistance did you receive?"
+cash_pay,cash,continue,,,"24) If yes, how much were you paid per month in SSP?"
+cash_months,cash,,to code,,25) For how many months did you receive the cash-based assistance?
+awareness_sess,,,,,26) Have you attended any awareness sessions on disaster risk reduction in the community?
+cash_benef,cash,,,,27) Was the money received beneficial to you and your household?
+cash_usage,cash,,cat,,28) How did you use the money that you received from the cash-based assistance?
+bdnc,,,dummy,,29) Are you aware of Boma Disaster Management Committees established by the project
+accomm,,,dummy,,30) Which of this best describes your present accommodation?
+tenure_doc,,,,,31) Do you have a land tenure document?
+agreement,,,cat,,32) What type of agreement do you have for your ownership OR rental of current accommodation?
+disputes,,,,,"34) Have there been any arguments or disputes with neighbours, other families, or people living in this area?"
+disputes_resolver,disputes,,dummy,,35) Who did you approach to get the dispute resolved
+dispute_resolved,disputes,,,,36) Has the dispute been resolved
+watersource,,,dummy,,"37) What is your current MAIN source of water for drinking, cooking, and hygiene in your household?"
+watersource_duration_a,,continue,,,38a) Enter exact time in MINUTES
+wells,,continue,,,39) How many operational wells are in your village?
+water_pay,,continue,,,40) How much do you pay for 1 litre of water?(in SSP)
+water_treatment,,,,,41) What type of water treatment do you use?
+borehole_rehab,,,,,42) Has the borehole in your area been rehabilitated?
+water_access,borehole_rehab,,,,"43) If yes, since rehabilitation, has this improved your access to water?"
+water_sensitization,,,,,"45)Have you ever had any sensitization on safe water supply, sanitation and hygiene in the last three months?"
+toilet,,,to code,,46) Where do you mostly defecate (go to the toilet)?
+handwash,toilet,,,,"47) If selected family or communal latrine above, is there a handwashing area next to the toilet?"
+soap,handwash,,,,"48) If yes above, is there soap available at the handwashing area?"
+separate,,,,,49) Are women and men latrines are separated?
+sensitization,,,,,"50) Have you ever had any sensitization on safe water supply, sanitation and hygiene in the last 6 months?"
+hygene_prom,,,,,51) Have you attended a mass hygiene promotion session in the last 6 months?
+handwash_times,,,cat,,52) What are the CRITICAL TIMES for washing hands in your households?
+handwash_why,,,to code,,53) Why is it important to wash our hands?(most important reason)
+handwash_item,,,to code,,54) What do you wash your hands with MOSTLY?
+latrine_use,,,,,55) Did you or any other member of your household (available) use a latrine/toilet the last time you defecated?
+hygiene_activities,,,,,56)Have you participated in any hygiene promotion activities?
+wash_nfi,,,,,57) Did your household receive a WASH Non-Food Item (NFI) Kit?
+mhm,,,,,58)Did any female member of your HH receive a MHM Kit from IOM?
+soap2,,,,,59) Has your household received soap from IOM?
+mhm_training,,,,,60) Have you received training on MHM Kits
+hygiene_messages,,,,,62) Did you receive any hygiene messages during the implementation of the project?
+hygiene_awareness,,,,,63) Have you attended any Hygiene awareness campaigns?
+clinic,,,,,64) Is there an IOM operated clinic near you?
+clinic_access,,,,,65) Have you or any member of your HH accessed an IOM operated clinic?
+clinic_satisfaction,clinic_access,,to code,,"66) If yes, how would you rate your satisfaction in the health care services received at the service?"
+mh_services,,,cat,,67) Have you received any of the following services from IOM?
+well-being,,,to code,,68) Has there been an increase in your psychosocial well-being?
+cb_training,,,cat,,69) Have you received the following capacity building training from IOM?
+ctds,,,,,70) Have you received training in conflict transformation and dialogue skills?
+basicknowledge_improvement,ctds,,to code,,"71) If yes, has there been improvement in your basic knowledge on conflict transformation?"
+targeted_ass,,,,,72) Have you received individual targeted assistance/support from IOM?
+gbv_campaigns,,,,,73) Are you aware of any GBV awareness campaigns carried out by the project?
+campaigns,,,cat,,"74) If yes, how did you receive these messages?"
+knowledge_increase,gbv_campaigns,,to code,,"75) If yes, since participating in the GBV initiatives by IOM, my overall knowledge has?"
+wgfs,,,,,76) Have you accessed a woman's and girls' friendly space?
+wgfs_benefit,wgfs,,to code,,"77) If yes, are the women and girls' friendly spaces beneficial?"
+perception1,,,to code,,"Because of the project, my access to safe, appropriate emergency shelter and lifesaving NFIs has"
+perception2,,,to code,,"Because of the project, my ability to respond to shocks and build on existing skills has"
+perception3,,,to code,,"Since the project, my overall knowledge on GBV has"
+perception4,,,to code,,"Since the project, my access to health services has"
+perception5,,,to code,,"Since the project, my knowledge on Mental Health and Psychosocial well-being has"
+county,,,dummy,,County_revised
+payam,,,dummy,,Payam_Y
+boma,,,dummy,,Boma_z
+village,,,dummy,,Village_AA
+incomepermember,,continue,,,Income per household member
+gender HHH,,,,,Gender of the head of household
+age HHH,,continue,,,Age of the head of household

@@ -10,6 +10,7 @@ import pickle
 import re
 from collections import Counter
 from PIL import Image
+from joypy import joyplot
 from streamlit_option_menu import option_menu
 from dashboard_fonctions import *
 
@@ -26,17 +27,52 @@ def load_data():
 		if i != 'wells':
 			data[i]=data[i].astype(float)
 	correl = pd.read_csv('graphs.csv')
-	questions = pd.read_csv('questions.csv',sep='\t')
-	questions.drop([i for i in questions.columns if 'Unnamed' in i], axis=1, inplace=True)
-	quest = questions.iloc[4].to_dict()
+	questions = pd.read_csv('questions.csv')
+	questions.drop([0], axis=0, inplace=True)
+	questions.columns=['code','parent','type','treatment','other','question']
 	codes = pd.read_csv('codes.csv', index_col=None, decimal='.').dropna(how='any', subset=['color'])
-	return data, correl, quest, codes
+	return data, correl, questions, codes
+
+def county_map(df,feature):
+	bent = px.scatter_mapbox(df[df['county'] == 'Bentiu'], lat="latitude", lon="longitude",
+								 color=feature,
+								 size_max=15, zoom=13.5)
+	bent.update_layout(mapbox_style="open-street-map")
+	bent.update_layout(margin={"r": 5, "t": 5, "l": 5, "b": 5})
+	bent.update_layout(legend_title=None, legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center",
+                                                            x=0.5, font=dict(size=16), title=None))
+
+	wau = px.scatter_mapbox(df[df['county'] == 'Wau'], lat="latitude", lon="longitude",
+								color=feature,
+								size_max=15, zoom=15)
+	wau.update_layout(mapbox_style="open-street-map")
+	wau.update_layout(margin={"r": 5, "t": 5, "l": 5, "b": 5})
+	wau.update_layout(legend_title=None, legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center",
+													   x=0.5, font=dict(size=16), title=dict(font=dict(size=16),
+																							 side='top'),
+													   )
+						)
+
+	malak = px.scatter_mapbox(df[df['county'] == 'Malakal'], lat="latitude", lon="longitude",
+								  color=feature,
+								  size_max=15, zoom=14.5)
+	malak.update_layout(mapbox_style="open-street-map")
+	malak.update_layout(margin={"r": 5, "t": 5, "l": 5, "b": 5})
+	malak.update_layout(legend_title=None, legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center",
+                                                            x=0.5, font=dict(size=16), title=dict(font=dict(size=16),
+                                                                                                   side='top'),
+                                                            )
+                      )
+
+	return bent,wau,malak
+
 
 data, correl, questions, codes = load_data()
 
 img1 = Image.open("logoAxiom.png")
 img2 = Image.open("logoIOM.png")
 
+#st.write(questions)
 
 def main():	
 	#st.write(codes)
@@ -47,7 +83,7 @@ def main():
 	title1, title3 = st.columns([9,2])
 
 	with st.sidebar:
-		topic = option_menu(None, ['Machine learning results', 'Correlations'],#, 'Maps application', 'Wordclouds'],
+		topic = option_menu(None, ['Machine learning results', 'Correlations', 'Maps application' ],#, 'Wordclouds'],
 							 icons=["cpu", 'bar-chart', 'map', 'cloud'],
 							 menu_icon="app-indicator", default_index=0,
 							 )
@@ -159,22 +195,7 @@ def main():
 					st.markdown("""---""")
 				else:
 					col1,col2,col3=st.columns([1,1,1])
-					bent = px.scatter_mapbox(df[df['county']=='Bentiu'], lat="latitude", lon="longitude", color=quest.iloc[i]['variable_x'],
-											color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=13.5)
-					bent.update_layout(mapbox_style="open-street-map")
-					bent.update_layout(margin={"r": 5, "t": 5, "l": 5, "b": 5})
-
-					wau = px.scatter_mapbox(df[df['county'] == 'Wau'], lat="latitude", lon="longitude",
-											 color=quest.iloc[i]['variable_x'],
-											 color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=15)
-					wau.update_layout(mapbox_style="open-street-map")
-					wau.update_layout(margin={"r": 5, "t": 5, "l": 5, "b": 5})
-
-					malak = px.scatter_mapbox(df[df['county'] == 'Malakal'], lat="latitude", lon="longitude",
-											 color=quest.iloc[i]['variable_x'],
-											 size_max=15, zoom=14.5)
-					malak.update_layout(mapbox_style="open-street-map")
-					malak.update_layout(margin={"r": 5, "t": 5, "l": 5, "b": 5})
+					bent,wau,malak=county_map(df,quest.iloc[i]['variable_x'])
 
 					col1.subheader('Bentiu')
 					col1.plotly_chart(bent, use_container_width=True)
@@ -184,6 +205,95 @@ def main():
 					col3.plotly_chart(malak, use_container_width=True)
 
 					st.write(quest.iloc[i]['Description'])
+
+	# ______________________________________ MAPS __________________________________#
+
+	elif topic == 'Maps application':
+
+
+		questions_map=pd.read_csv('questions_maps.csv', index_col=None)
+		#st.write(questions_map)
+		title1.title('Display the responses in Maps for each of the County')
+
+		st.write('If you look at question 14, there seem to have been quite a lot of dispute in Block 10 in Bentiu which have been resolve by the IDP committee members.')
+
+		cat_cols = pickle.load(open("cat_cols.p", "rb"))
+		col1,col2=st.columns([1,1])
+
+		question = col1.selectbox('Select a question:', [i for i in questions_map['question']])
+		indice = [i for i in questions_map.index if questions_map.loc[i]['question'] == question]
+
+		feature = questions_map.loc[indice[0]]['Idquest']
+
+		#st.write(feature)
+
+		quests_list = [i for i in data.columns if feature in i]
+
+		#st.write(quests_list)
+
+		if questions_map.loc[indice[0]]['Treatment'] == 'cat':
+			fig = px.bar(x=[' '.join(i.split(' ')[1:]) for i in quests_list], y=data[quests_list].applymap(lambda x: 1 if x == 1 else 0).sum(),
+							 labels={'y': 'People','x':''})  # .applymap(lambda x:1 if x=='Yes' else 0).sum()
+			col1.plotly_chart(fig)
+
+			c1,c2,c3=st.columns((1,1,1))
+
+			for item in [' '.join(i.split(' ')[1:]) for i in quests_list]:
+
+				feat=feature+' '+item
+
+				df=data[['county',feat,'latitude','longitude']]
+				df[feat]=df[feat].apply(lambda x: item if x==1 else 'Not '+item)
+
+				bent, wau, malak = county_map(df, feat)
+				c1.subheader('People who responded')
+				c1.write('Bentiu')
+				c1.plotly_chart(bent, use_container_width=True)
+				c2.subheader(':')
+				c2.write('Wau')
+				c2.plotly_chart(wau, use_container_width=True)
+				c3.subheader(item)
+				c3.write('Malakal')
+				c3.plotly_chart(malak, use_container_width=True)
+
+		elif questions_map.loc[indice[0]]['parent'] == questions_map.loc[indice[0]]['parent']:
+			parent=questions_map.loc[indice[0]]['parent']
+			if parent =='residency':
+				df=data[data['residency']=='IDP']
+			elif parent=='toilet':
+				df=data[data['toilet']!='Bush']
+
+			else:
+				df = data[data[parent] == 'Yes']
+			fig = px.histogram(df, x=feature, color_discrete_sequence=['green'])
+			fig.update_layout(xaxis={'title': None})
+			col1.plotly_chart(fig)
+
+			bent, wau, malak = county_map(df, feature)
+
+			col2.subheader('')
+			col2.subheader('Bentiu')
+			col2.plotly_chart(bent, use_container_width=True)
+			col1.subheader('Wau')
+			col1.plotly_chart(wau, use_container_width=True)
+			col2.subheader('Malakal')
+			col2.plotly_chart(malak, use_container_width=True)
+
+		else:
+			fig = px.histogram(data, x=feature, color_discrete_sequence=['green'])
+			fig.update_layout(xaxis={'title': None})
+			col1.plotly_chart(fig)
+
+			bent, wau, malak = county_map(data, feature)
+
+			col2.subheader('')
+			col2.subheader('Bentiu')
+			col2.plotly_chart(bent, use_container_width=True)
+			col1.subheader('Wau')
+			col1.plotly_chart(wau, use_container_width=True)
+			col2.subheader('Malakal')
+			col2.plotly_chart(malak, use_container_width=True)
+
 
 	# ______________________________________ WORDCLOUDS __________________________________#
 
