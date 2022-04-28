@@ -266,7 +266,7 @@ def main():
 				df = data[data[parent] == 'Yes']
 			fig = px.histogram(df, x=feature, color_discrete_sequence=['green'])
 			fig.update_layout(xaxis={'title': None},yaxis={'title': None})
-			fig.update_layout(margin={"r": 100, "t": 5, "l": 5, "b": 5})
+			fig.update_layout(margin={"r": 200, "t": 5, "l": 5, "b": 5})
 			col1.plotly_chart(fig)
 
 			bent, wau, malak = county_map(df, feature)
@@ -282,7 +282,7 @@ def main():
 		else:
 			fig = px.histogram(data, x=feature, color_discrete_sequence=['green'])
 			fig.update_layout(xaxis={'title': None},yaxis={'title': None})
-			fig.update_layout(margin={"r": 100, "t": 5, "l": 5, "b": 5})
+			fig.update_layout(margin={"r": 200, "t": 5, "l": 5, "b": 5})
 			col1.plotly_chart(fig)
 
 			bent, wau, malak = county_map(data, feature)
