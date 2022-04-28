@@ -217,7 +217,7 @@ def main():
 		st.write('If you look at question 14, there seem to have been quite a lot of dispute in Block 10 in Bentiu which have been resolve by the IDP committee members.')
 
 		cat_cols = pickle.load(open("cat_cols.p", "rb"))
-		col1,border,col2=st.columns([4,1,4])
+		col1,col2=st.columns([1,1])
 
 		question = col1.selectbox('Select a question:', [i for i in questions_map['question']])
 		indice = [i for i in questions_map.index if questions_map.loc[i]['question'] == question]
@@ -266,8 +266,8 @@ def main():
 				df = data[data[parent] == 'Yes']
 			fig = px.histogram(df, x=feature, color_discrete_sequence=['green'])
 			fig.update_layout(xaxis={'title': None},yaxis={'title': None})
-			fig.update_layout(margin={"r": 50, "t": 5, "l": 5, "b": 5})
-			col1.plotly_chart(fig)
+			fig.update_layout(margin={"r": 5, "t": 5, "l": 5, "b": 5})
+			col1.plotly_chart(fig, use_container_width=True)
 
 			bent, wau, malak = county_map(df, feature)
 
@@ -282,8 +282,8 @@ def main():
 		else:
 			fig = px.histogram(data, x=feature, color_discrete_sequence=['green'])
 			fig.update_layout(xaxis={'title': None},yaxis={'title': None})
-			fig.update_layout(margin={"r": 50, "t": 5, "l": 5, "b": 5})
-			col1.plotly_chart(fig)
+			fig.update_layout(margin={"r": 5, "t": 5, "l": 5, "b": 5})
+			col1.plotly_chart(fig, use_container_width=True)
 
 			bent, wau, malak = county_map(data, feature)
 
